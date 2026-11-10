@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm Từ - Học từ vựng tiếng Anh</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Hiệu ứng nền -->
+    <div class="background-decoration">
+        <span class="blob blob-one"></span>
+        <span class="blob blob-two"></span>
+        <span class="leaf-decoration leaf-one">✿</span>
+        <span class="leaf-decoration leaf-two">❀</span>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+            <div>
+                <h2>Trạm<span>Từ</span></h2>
+                <small>Grow your vocabulary</small>
+            </div>
+        </div>
+
+        <div class="sidebar-label">MENU CHÍNH</div>
+
+        <nav class="menu">
+            <a href="#" class="menu-item active" data-page="home">
+                <i class="fa-solid fa-house"></i>
+                <span>Trang chủ</span>
+            </a>
+
+            <a href="#" class="menu-item" data-page="about">
+                <i class="fa-regular fa-compass"></i>
+                <span>Giới thiệu</span>
+            </a>
+
+            <a href="#" class="menu-item" data-page="categories">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Danh mục từ vựng</span>
+            </a>
+
+            <a href="#" class="menu-item" data-page="add-word">
+                <i class="fa-solid fa-circle-plus"></i>
+                <span>Thêm từ mới</span>
+            </a>
+
+            <a href="#" class="menu-item" data-page="practice">
+                <i class="fa-solid fa-brain"></i>
+                <span>Luyện tập</span>
+            </a>
+
+            <a href="#" class="menu-item" data-page="favorites">
+                <i class="fa-solid fa-heart"></i>
+                <span>Từ yêu thích</span>
+            </a>
+
+            <a href="#" class="menu-item" data-page="statistics">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Thống kê</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-label account-label">TÀI KHOẢN</div>
+
+        <nav class="menu">
+            <a href="#" class="menu-item" data-page="account">
+                <i class="fa-regular fa-user"></i>
+                <span>Đăng nhập / Đăng ký</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="daily-card">
+                <div class="daily-icon"><i class="fa-solid fa-seedling"></i></div>
+                <h4>Keep growing!</h4>
+                <p>Mỗi từ mới là một bước tiến gần hơn đến mục tiêu của bạn.</p>
+                <div class="daily-progress">
+                    <div class="progress-fill" id="sidebarProgressBar" style="width:0%"></div>
+                </div>
+                <small id="sidebarProgressText">0% mục tiêu hôm nay</small>
+            </div>
+
+            <div class="sidebar-user">
+                <div class="avatar">H</div>
+                <div class="user-info">
+                    <strong>English Learner</strong>
+                    <small>Thành viên mới</small>
+                </div>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="mobile-menu" id="mobileMenu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div>
+                    <p class="breadcrumb">Không gian học tập / <span id="pageName">Trang chủ</span></p>
+                    <h2 id="topTitle">Chào mừng bạn trở lại! 🌿</h2>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <div class="date-display">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span id="todayDate"></span>
+                </div>
+
+                <button class="icon-button" id="themeToggle" title="Đổi giao diện">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button class="notification-button" title="Thông báo">
+                    <i class="fa-regular fa-bell"></i>
+                    <span></span>
+                </button>
+
+                <div class="top-avatar">H</div>
+            </div>
+        </header>
+
+        <!-- PAGE CONTAINER -->
+        <div class="page-container">
+
+            <!-- ================= HOME ================= -->
+            <section class="page active" id="home">
+
+                <div class="welcome-banner">
+                    <div class="welcome-content">
+                        <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> YOUR ENGLISH JOURNEY</span>
+                        <h1>Grow your words,<br><span>grow your world.</span></h1>
+                        <p>Học một chút mỗi ngày, tiến bộ hơn mỗi ngày.<br>Hãy bắt đầu hành trình chinh phục tiếng Anh của bạn!</p>
+                        <button class="primary-button" data-go="practice">
+                            Bắt đầu học ngay <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="welcome-art">
+                        <div class="art-circle circle-one"></div>
+                        <div class="art-circle circle-two"></div>
+                        <div class="book-illustration">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>ABC</span>
+                        </div>
+                        <div class="floating-leaf leaf-a">🌿</div>
+                        <div class="floating-leaf leaf-b">✨</div>
+                        <div class="floating-leaf leaf-c">📖</div>
+                    </div>
+
+                    <div class="banner-bottom-text">LEARN • PRACTICE • GROW</div>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">YOUR OVERVIEW</span>
+                        <h2>Tổng quan học tập</h2>
+                        <p>Cùng nhìn lại hành trình học tiếng Anh của bạn.</p>
+                    </div>
+                    <span class="today-badge"><i class="fa-solid fa-calendar-check"></i> Hôm nay</span>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fa-solid fa-book"></i></div>
+                        <div class="stat-info">
+                            <p>Tổng số từ vựng</p>
+                            <h3 id="totalWords">12</h3>
+                            <small><i class="fa-solid fa-arrow-trend-up"></i> Từ đã lưu</small>
+                        </div>
+                        <div class="stat-decoration">✦</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange"><i class="fa-solid fa-fire"></i></div>
+                        <div class="stat-info">
+                            <p>Chuỗi ngày học</p>
+                            <h3 id="streakCount">0 <span>ngày</span></h3>
+                            <small>Tiếp tục phát huy!</small>
+                        </div>
+                        <div class="stat-decoration">✦</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple"><i class="fa-solid fa-heart"></i></div>
+                        <div class="stat-info">
+                            <p>Từ yêu thích</p>
+                            <h3 id="favoriteCount">3</h3>
+                            <small>Đừng quên ôn tập</small>
+                        </div>
+                        <div class="stat-decoration">✦</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="stat-info">
+                            <p>Điểm luyện tập</p>
+                            <h3 id="averageScore">0<span>%</span></h3>
+                            <small>Kết quả gần đây</small>
+                        </div>
+                        <div class="stat-decoration">✦</div>
+                    </div>
+                </div>
+
+                <div class="home-grid">
+
+                    <div class="content-card weekly-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Tiến độ học tập</h3>
+                                <p>Theo dõi sự tiến bộ của bạn</p>
+                            </div>
+                            <span class="card-icon"><i class="fa-solid fa-chart-line"></i></span>
+                        </div>
+
+                        <div class="weekly-summary">
+                            <div>
+                                <h2 id="weeklyProgressText">0%</h2>
+                                <p>Hoàn thành mục tiêu tuần</p>
+                            </div>
+                            <span class="trend-up">
+                                <i class="fa-solid fa-arrow-up"></i>
+                                <span id="weeklyTrend">0%</span>
+                            </span>
+                        </div>
+
+                        <div class="progress-track large">
+                            <div class="progress-fill" id="weeklyProgressBar" style="width: 0%"></div>
+                        </div>
+
+                        <div class="week-days" id="weekDays">
+                            <div><span>T2</span><i class="day-dot"></i></div>
+                            <div><span>T3</span><i class="day-dot"></i></div>
+                            <div><span>T4</span><i class="day-dot"></i></div>
+                            <div><span>T5</span><i class="day-dot"></i></div>
+                            <div><span>T6</span><i class="day-dot"></i></div>
+                            <div><span>T7</span><i class="day-dot"></i></div>
+                            <div><span>CN</span><i class="day-dot"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="content-card goal-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Mục tiêu hôm nay</h3>
+                                <p>Small steps, big changes!</p>
+                            </div>
+                            <span class="card-icon"><i class="fa-solid fa-bullseye"></i></span>
+                        </div>
+
+                        <div class="goal-circle">
+                            <div class="goal-inner">
+                                <strong id="dailyGoalCount">0/0</strong>
+                                <span>từ đã học</span>    
+                            </div>
+                        </div>
+                        <p class="goal-message">Bạn đang làm rất tốt! Cố gắng thêm một chút nữa nhé 🌱</p>
+                    </div>
+
+                </div>
+
+                <div class="section-heading compact-heading">
+                    <div>
+                        <span class="section-kicker">DISCOVER</span>
+                        <h2>Khám phá chủ đề</h2>
+                    </div>
+                    <button class="text-button" data-go="categories">Xem tất cả <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="category-grid">
+                    <div class="category-card category-work" data-category="Work">
+                        <div class="category-emoji">💼</div>
+                        <span class="category-count">24 từ</span>
+                        <h3>Work & Business</h3>
+                        <p>Từ vựng công việc</p>
+                        <div class="category-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="category-card category-life" data-category="Daily Life">
+                        <div class="category-emoji">🌻</div>
+                        <span class="category-count">32 từ</span>
+                        <h3>Daily Life</h3>
+                        <p>Cuộc sống hằng ngày</p>
+                        <div class="category-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="category-card category-travel" data-category="Travel">
+                        <div class="category-emoji">✈️</div>
+                        <span class="category-count">18 từ</span>
+                        <h3>Travel</h3>
+                        <p>Du lịch và khám phá</p>
+                        <div class="category-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+
+                    <div class="category-card category-study" data-category="Education">
+                        <div class="category-emoji">📚</div>
+                        <span class="category-count">28 từ</span>
+                        <h3>Education</h3>
+                        <p>Học tập và giáo dục</p>
+                        <div class="category-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="section-heading compact-heading">
+                    <div>
+                        <span class="section-kicker">RECENTLY ADDED</span>
+                        <h2>Từ vựng mới nhất</h2>
+                    </div>
+                    <button class="text-button" data-go="categories">Khám phá <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+                <div class="content-card word-table-card">
+                    <div class="word-table" id="homeWordList"></div>
+                </div>
+
+            </section>
+
+            <!-- ================= ABOUT ================= -->
+            <section class="page" id="about">
+                <div class="page-hero about-hero">
+                    <span class="section-kicker">ABOUT TRẠM TỪ</span>
+                    <h1>Learn English,<br><span>one word at a time.</span></h1>
+                    <p>Trạm Từ là không gian học từ vựng tiếng Anh trực tuyến, giúp người học xây dựng vốn từ một cách khoa học, dễ dàng và thú vị.</p>
+                    <div class="about-hero-emoji">🌿📚✨</div>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">OUR PURPOSE</span>
+                        <h2>Về website</h2>
+                        <p>Học tập hiệu quả bắt đầu từ những điều đơn giản.</p>
+                    </div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="content-card about-feature">
+                        <div class="feature-icon green"><i class="fa-solid fa-lightbulb"></i></div>
+                        <h3>Mục tiêu</h3>
+                        <p>Xây dựng nền tảng hỗ trợ người học ghi nhớ, ôn tập và mở rộng vốn từ vựng tiếng Anh.</p>
+                    </div>
+                    <div class="content-card about-feature">
+                        <div class="feature-icon orange"><i class="fa-solid fa-book-open"></i></div>
+                        <h3>Nội dung</h3>
+                        <p>Cung cấp từ vựng theo chủ đề, nghĩa tiếng Việt, ví dụ và các phương pháp luyện tập.</p>
+                    </div>
+                    <div class="content-card about-feature">
+                        <div class="feature-icon purple"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>Trải nghiệm</h3>
+                        <p>Giao diện trực quan, dễ sử dụng, kết hợp nhiều chức năng học tập tương tác.</p>
+                    </div>
+                </div>
+
+                <div class="content-card mission-card">
+                    <div class="mission-icon">🌱</div>
+                    <div>
+                        <span class="section-kicker">OUR PHILOSOPHY</span>
+                        <h2>Little by little, a little becomes a lot.</h2>
+                        <p>Chúng tôi tin rằng việc học từ vựng mỗi ngày, dù chỉ một vài từ, cũng có thể tạo nên sự thay đổi lớn trong hành trình chinh phục tiếng Anh.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= CATEGORIES ================= -->
+            <section class="page" id="categories">
+                <div class="section-heading page-heading">
+                    <div>
+                        <span class="section-kicker">VOCABULARY LIBRARY</span>
+                        <h1>Danh mục từ vựng</h1>
+                        <p>Khám phá và học từ vựng theo từng chủ đề yêu thích.</p>
+                    </div>
+                    <button class="primary-button" data-go="add-word"><i class="fa-solid fa-plus"></i> Thêm từ mới</button>
+                </div>
+
+                <div class="category-grid full-category-grid">
+                    <div class="category-card category-work" data-category="Work">
+                        <div class="category-emoji">💼</div><span class="category-count">Công việc</span>
+                        <h3>Work & Business</h3><p>Từ vựng môi trường công sở</p>
+                    </div>
+                    <div class="category-card category-life" data-category="Daily Life">
+                        <div class="category-emoji">🌻</div><span class="category-count">Đời sống</span>
+                        <h3>Daily Life</h3><p>Giao tiếp hằng ngày</p>
+                    </div>
+                    <div class="category-card category-travel" data-category="Travel">
+                        <div class="category-emoji">✈️</div><span class="category-count">Du lịch</span>
+                        <h3>Travel</h3><p>Khám phá thế giới</p>
+                    </div>
+                    <div class="category-card category-study" data-category="Education">
+                        <div class="category-emoji">📚</div><span class="category-count">Giáo dục</span>
+                        <h3>Education</h3><p>Học tập và trường học</p>
+                    </div>
+                    <div class="category-card category-health" data-category="Health">
+                        <div class="category-emoji">🍀</div><span class="category-count">Sức khỏe</span>
+                        <h3>Health</h3><p>Sức khỏe và thể chất</p>
+                    </div>
+                    <div class="category-card category-tech" data-category="Technology">
+                        <div class="category-emoji">💻</div><span class="category-count">Công nghệ</span>
+                        <h3>Technology</h3><p>Máy tính và công nghệ</p>
+                    </div>
+                </div>
+
+                <div class="section-heading compact-heading">
+                    <div>
+                        <h2>Từ vựng trong thư viện</h2>
+                        <p id="categoryResultCount">Tất cả từ vựng</p>
+                    </div>
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="wordSearch" placeholder="Tìm kiếm từ vựng...">
+                    </div>
+                </div>
+
+                <div class="filter-row">
+                    <button class="filter-chip active" data-filter="All">Tất cả</button>
+                    <button class="filter-chip" data-filter="Work">Work</button>
+                    <button class="filter-chip" data-filter="Daily Life">Daily Life</button>
+                    <button class="filter-chip" data-filter="Travel">Travel</button>
+                    <button class="filter-chip" data-filter="Education">Education</button>
+                    <button class="filter-chip" data-filter="Health">Health</button>
+                    <button class="filter-chip" data-filter="Technology">Technology</button>
+                </div>
+
+                <div class="vocabulary-grid" id="vocabularyGrid"></div>
+            </section>
+
+            <!-- ================= ADD WORD ================= -->
+            <section class="page" id="add-word">
+                <div class="section-heading page-heading">
+                    <div>
+                        <span class="section-kicker">BUILD YOUR VOCABULARY</span>
+                        <h1>Thêm từ vựng mới</h1>
+                        <p>Lưu lại những từ mới để xây dựng kho từ vựng cá nhân.</p>
+                    </div>
+                </div>
+
+                <div class="add-word-layout">
+                    <div class="content-card form-card">
+                        <div class="form-title">
+                            <div class="feature-icon green"><i class="fa-solid fa-pen-to-square"></i></div>
+                            <div><h2>Thông tin từ vựng</h2><p>Điền thông tin từ bạn muốn lưu.</p></div>
+                        </div>
+
+                        <form id="addWordForm">
+                            <div class="form-group">
+                                <label>Từ tiếng Anh <span>*</span></label>
+                                <input type="text" id="newWord" placeholder="Ví dụ: Achievement" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nghĩa tiếng Việt <span>*</span></label>
+                                    <input type="text" id="newMeaning" placeholder="Ví dụ: Thành tựu" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Loại từ</label>
+                                    <select id="newType">
+                                        <option value="Noun">Noun (Danh từ)</option>
+                                        <option value="Verb">Verb (Động từ)</option>
+                                        <option value="Adjective">Adjective (Tính từ)</option>
+                                        <option value="Adverb">Adverb (Trạng từ)</option>
+                                        <option value="Phrase">Phrase (Cụm từ)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Chủ đề / Gói từ vựng (Có thể tự nhập mới) <span>*</span></label>
+                                <input type="text" id="newCategory" placeholder="Ví dụ: Work, IELTS Unit 1, Chủ đề mới..." required value="Work">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phiên âm (IPA)</label>
+                                <input type="text" id="newIPA" placeholder="Ví dụ: /əˈtʃiːvmənt/">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ví dụ tiếng Anh</label>
+                                <textarea id="newExample" rows="3" placeholder="Ví dụ: This is a great achievement."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ghi chú</label>
+                                <textarea id="newNote" rows="2" placeholder="Ghi chú thêm nếu có..."></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="reset" class="secondary-button">Làm mới</button>
+                                <button type="submit" class="primary-button"><i class="fa-solid fa-floppy-disk"></i> Lưu từ vựng</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="add-side">
+                        <div class="content-card tip-card">
+                            <div class="tip-illustration">💡</div>
+                            <span class="section-kicker">LEARNING TIP</span>
+                            <h3>Mẹo học từ hiệu quả</h3>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> Học từ trong ngữ cảnh.</li>
+                                <li><i class="fa-solid fa-check"></i> Đặt câu với từ mới.</li>
+                                <li><i class="fa-solid fa-check"></i> Ôn tập thường xuyên.</li>
+                                <li><i class="fa-solid fa-check"></i> Kết hợp phát âm và hình ảnh.</li>
+                            </ul>
+                        </div>
+
+                        <div class="mini-quote">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p>One word a day keeps the limits away.</p>
+                            <span>— Trạm Từ</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= PRACTICE ================= -->
+            <section class="page" id="practice">
+                <div class="section-heading page-heading">
+                    <div>
+                        <span class="section-kicker">PRACTICE MAKES PROGRESS</span>
+                        <h1>Trung tâm luyện tập</h1>
+                        <p>Chọn phương pháp phù hợp để ghi nhớ từ vựng lâu hơn.</p>
+                    </div>
+                </div>
+
+                <div class="practice-tabs">
+                    <button class="practice-tab active" data-practice="flashcard"><i class="fa-solid fa-clone"></i> Flashcard</button>
+                    <button class="practice-tab" data-practice="quiz"><i class="fa-solid fa-list-check"></i> Trắc nghiệm</button>
+                    <button class="practice-tab" data-practice="fill"><i class="fa-solid fa-pen"></i> Điền từ</button>
+                </div>
+
+                <div class="practice-panel active" id="flashcardPanel">
+                    <div class="practice-intro">
+                        <h2>Flashcard – Học qua thẻ ghi nhớ</h2>
+                        <p>Nhấn vào thẻ để xem nghĩa tiếng Việt.</p>
+                    </div>
+
+                    <div class="flashcard-area">
+                        <div class="flashcard" id="flashcard">
+                            <div class="flashcard-front">
+                                <span class="flash-label">ENGLISH WORD</span>
+                                <h1 id="flashWord">Achievement</h1>
+                                <p id="flashIPA">/əˈtʃiːvmənt/</p>
+                                <span class="flip-hint"><i class="fa-solid fa-rotate"></i> Nhấn để lật thẻ</span>
+                            </div>
+                            <div class="flashcard-back">
+                                <span class="flash-label">VIETNAMESE MEANING</span>
+                                <h1 id="flashMeaning">Thành tựu</h1>
+                                <p id="flashExample">This is a great achievement.</p>
+                                <span class="flip-hint">Nhấn để quay lại</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flash-controls">
+                        <button class="round-control" id="prevFlash"><i class="fa-solid fa-arrow-left"></i></button>
+                        <span id="flashCounter">1 / 12</span>
+                        <button class="round-control" id="nextFlash"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="flash-actions">
+                        <button class="secondary-button" id="shuffleFlash"><i class="fa-solid fa-shuffle"></i> Xáo trộn</button>
+                        <button class="primary-button" id="knowFlash"><i class="fa-solid fa-check"></i> Đã nhớ từ này</button>
+                    </div>
+                </div>
+
+                <!-- PHẦN TRẮC NGHIỆM ĐÃ TÍCH HỢP CHỌN GÓI -->
+                <div class="practice-panel" id="quizPanel">
+                    <div class="practice-intro">
+                        <h2>Vocabulary Quiz – Trắc nghiệm</h2>
+                        <p>Chọn gói từ vựng và bắt đầu thử thách kiến thức.</p>
+                    </div>
+
+                    <div style="max-width: 680px; margin: 0 auto 20px auto; display: flex; gap: 10px; align-items: center; background: var(--surface); padding: 15px; border-radius: 15px; border: 1px solid var(--border);">
+                        <label style="font-size: 11px; font-weight: bold;">Chọn gói từ vựng:</label>
+                        <select id="quizPackageSelect" style="flex: 1; padding: 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--background); color: var(--text); font-size: 11px;">
+                            <option value="All">Tất cả các từ vựng</option>
+                        </select>
+                        <button class="primary-button" id="startPackageQuizBtn" style="padding: 8px 15px;">Bắt đầu thi</button>
+                        <!-- 👉 ĐOẠN NÀY LÀ MỚI THÊM VÀO -->
+    <button class="secondary-button" id="deletePackageBtn" style="padding: 8px 12px; color: #d86c6c;" title="Xóa gói này">
+        <i class="fa-solid fa-trash"></i> Xóa gói
+    </button>
+                    </div>
+
+                    <div class="content-card quiz-card">
+                        <div class="quiz-top">
+                            <span class="quiz-number" id="quizNumber">CÂU HỎI 01</span>
+                            <span class="quiz-score">Điểm: <strong id="quizScore">0</strong></span>
+                        </div>
+                        <div class="progress-track"><div class="progress-fill" id="quizProgress" style="width:10%"></div></div>
+                        <div class="quiz-question">
+                            <span>What is the meaning of?</span>
+                            <h1 id="quizWord">Achievement</h1>
+                        </div>
+                        <div class="quiz-options" id="quizOptions"></div>
+                        <div class="quiz-feedback" id="quizFeedback"></div>
+                        <div class="quiz-footer">
+                            <span id="quizCount">1 / 10</span>
+                            <button class="primary-button" id="nextQuiz" disabled>Câu tiếp theo <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-panel" id="fillPanel">
+                    <div class="practice-intro">
+                        <h2>Fill in the blank – Điền từ</h2>
+                        <p>Hoàn thành câu bằng cách điền từ tiếng Anh thích hợp.</p>
+                    </div>
+
+                    <div class="content-card fill-card">
+                        <div class="fill-icon">✍️</div>
+                        <span class="section-kicker">COMPLETE THE SENTENCE</span>
+                        <h2 id="fillMeaning">Thành tựu</h2>
+                        <p class="fill-sentence" id="fillSentence">This is a great ________.</p>
+                        <form id="fillForm">
+                            <input type="text" id="fillAnswer" placeholder="Nhập từ tiếng Anh..." autocomplete="off" required>
+                            <button class="primary-button" type="submit">Kiểm tra <i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <div class="quiz-feedback" id="fillFeedback"></div>
+                        <button class="secondary-button" id="nextFill">Từ tiếp theo <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= FAVORITES ================= -->
+            <section class="page" id="favorites">
+                <div class="section-heading page-heading">
+                    <div>
+                        <span class="section-kicker">YOUR PERSONAL COLLECTION</span>
+                        <h1>Từ vựng yêu thích <span class="heading-heart">♥</span></h1>
+                        <p>Lưu giữ những từ quan trọng để ôn tập bất cứ lúc nào.</p>
+                    </div>
+                </div>
+
+                <div class="favorite-banner">
+                    <div><i class="fa-solid fa-heart"></i></div>
+                    <div><h3>Your favorite words</h3><p id="favoriteDescription">Những từ bạn muốn ghi nhớ lâu dài.</p></div>
+                    <strong id="favoriteTotal">3 từ</strong>
+                </div>
+
+                <div class="vocabulary-grid" id="favoriteGrid"></div>
+            </section>
+
+            <!-- ================= STATISTICS ================= -->
+            <section class="page" id="statistics">
+                <div class="section-heading page-heading">
+                    <div>
+                        <span class="section-kicker">YOUR LEARNING JOURNEY</span>
+                        <h1>Thống kê học tập</h1>
+                        <p>Nhìn lại quá trình học và những thành quả bạn đã đạt được.</p>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-icon green"><i class="fa-solid fa-book"></i></div><div class="stat-info"><p>Tổng từ vựng</p><h3 id="statTotalWords">12</h3><small>Trong thư viện</small></div></div>
+                    <div class="stat-card"><div class="stat-icon purple"><i class="fa-solid fa-heart"></i></div><div class="stat-info"><p>Từ yêu thích</p><h3 id="statFavorites">3</h3><small>Đã đánh dấu</small></div></div>
+                    <div class="stat-card"><div class="stat-icon orange"><i class="fa-solid fa-fire"></i></div><div class="stat-info"><p>Ngày học liên tiếp</p><h3 id="statStreak">0</h3><small>Keep it up!</small></div></div>
+                    <div class="stat-card"><div class="stat-icon blue"><i class="fa-solid fa-star"></i></div><div class="stat-info"><p>Điểm trung bình</p><h3 id="statScore">0%</h3><small>Kết quả luyện tập</small></div></div>
+                </div>
+
+                <div class="home-grid statistics-grid">
+                    <div class="content-card">
+                        <div class="card-heading"><div><h3>Phân bố từ vựng</h3><p>Số lượng từ theo chủ đề</p></div></div>
+                        <div class="category-stat-list" id="categoryStats"></div>
+                    </div>
+
+                    <div class="content-card achievement-card">
+                        <div class="card-heading"><div><h3>Thành tựu</h3><p>Những cột mốc của bạn</p></div></div>
+                        <div class="achievement-item"><span>🌱</span><div><strong>Người mới bắt đầu</strong><small>Thêm từ vựng đầu tiên</small></div><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="achievement-item"><span>🔥</span><div><strong>Kiên trì học tập</strong><small>Học liên tiếp <span id="achievementStreakText">0</span> ngày</small></div><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="achievement-item"><span>🏆</span><div><strong>Vocabulary Master</strong><small>Đạt 100 từ vựng</small></div><i class="fa-solid fa-lock"></i></div>
+                        <div class="achievement-item"><span>💎</span><div><strong>Perfect Score</strong><small>Đạt 100% bài kiểm tra</small></div><i class="fa-solid fa-lock"></i></div>
+                    </div>
+                </div>
+
+                <!-- BẢNG LỊCH SỬ CHI TIẾT -->
+                <div class="content-card" style="margin-top: 20px;">
+                    <div class="card-heading">
+                        <div>
+                            <h3>Lịch sử luyện tập chi tiết</h3>
+                            <p>Thời gian, điểm số và số câu đúng của các lần làm bài</p>
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto; margin-top: 15px;">
+                        <table style="width: 100%; border-collapse: collapse; font-size: 11px;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid var(--border); text-align: left; color: var(--muted);">
+                                    <th style="padding: 10px;">Thời gian</th>
+                                    <th style="padding: 10px;">Gói từ vựng</th>
+                                    <th style="padding: 10px;">Số câu đúng</th>
+                                    <th style="padding: 10px;">Điểm số</th>
+                                    <th style="padding: 10px;">Thời gian làm</th>
+                                </tr>
+                            </thead>
+                            <tbody id="detailedHistoryBody">
+                                <!-- Dữ liệu lịch sử sẽ tự động đổ vào đây -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= ACCOUNT ================= -->
+            <section class="page" id="account">
+                <div class="account-layout">
+                    <div class="account-visual">
+                        <div class="account-visual-content">
+                            <div class="account-big-icon"><i class="fa-solid fa-seedling"></i></div>
+                            <span class="section-kicker">WELCOME TO TRẠM TỪ</span>
+                            <h1>Your journey<br>starts <span>here.</span></h1>
+                            <p>Tạo tài khoản để lưu lại hành trình học tập và xây dựng kho từ vựng của riêng bạn.</p>
+                            <div class="account-decoration">🌿 ✨ 📚</div>
+                        </div>
+                    </div>
+
+                    <div class="account-form-area">
+                        <div class="account-tabs">
+                            <button class="account-tab active" data-account="login">Đăng nhập</button>
+                            <button class="account-tab" data-account="register">Đăng ký</button>
+                        </div>
+
+                        <form id="loginForm" class="account-form active">
+                            <h2>Chào mừng trở lại!</h2>
+                            <p>Đăng nhập để tiếp tục học tập nhé.</p>
+                            <label>Email</label>
+                            <div class="input-icon"><i class="fa-regular fa-envelope"></i><input type="email" id="loginEmail" placeholder="example@email.com" required></div>
+                            <label>Mật khẩu</label>
+                            <div class="input-icon"><i class="fa-solid fa-lock"></i><input type="password" id="loginPassword" placeholder="Nhập mật khẩu" required></div>
+                            <button type="submit" class="primary-button full-button">Đăng nhập <i class="fa-solid fa-arrow-right"></i></button>
+                            <div class="account-message" id="loginMessage"></div>
+                            <small class="demo-note">Bản trình diễn: đăng ký tài khoản để trải nghiệm.</small>
+                        </form>
+
+                        <form id="registerForm" class="account-form">
+                            <h2>Tạo tài khoản mới</h2>
+                            <p>Bắt đầu hành trình học tiếng Anh ngay hôm nay.</p>
+                            <label>Họ và tên</label>
+                            <div class="input-icon"><i class="fa-regular fa-user"></i><input type="text" id="registerName" placeholder="Nhập họ và tên" required></div>
+                            <label>Email</label>
+                            <div class="input-icon"><i class="fa-regular fa-envelope"></i><input type="email" id="registerEmail" placeholder="example@email.com" required></div>
+                            <label>Mật khẩu</label>
+                            <div class="input-icon"><i class="fa-solid fa-lock"></i><input type="password" id="registerPassword" placeholder="Ít nhất 6 ký tự" minlength="6" required></div>
+                            <button type="submit" class="primary-button full-button">Tạo tài khoản <i class="fa-solid fa-arrow-right"></i></button>
+                            <div class="account-message" id="registerMessage"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div class="footer-logo"><i class="fa-solid fa-leaf"></i> Trạm Từ</div>
+                <p>Learn a word. Grow a dream. 🌿</p>
+                <span>© 2026 Trạm Từ. Designed for English learners.</span>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- WORD DETAIL MODAL -->
+    <div class="modal-overlay" id="wordModal">
+        <div class="word-modal">
+            <button class="modal-close" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+            <span class="section-kicker">VOCABULARY DETAIL</span>
+            <h1 id="modalWord">Achievement</h1>
+            <p class="modal-ipa" id="modalIPA"></p>
+            <span class="word-type" id="modalType"></span>
+            <h2 id="modalMeaning">Thành tựu</h2>
+            <div class="modal-example">
+                <span>EXAMPLE</span>
+                <p id="modalExample"></p>
+            </div>
+            <p class="modal-note" id="modalNote"></p>
+            <button class="primary-button" id="modalFavorite"><i class="fa-solid fa-heart"></i> Yêu thích</button>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
